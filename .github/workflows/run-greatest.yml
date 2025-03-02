@@ -1,0 +1,21 @@
+name: Run Greatest Number Script
+
+on:  
+  push:
+    branches:
+      - main  # Change if your script is in a different branch
+  workflow_dispatch:  # Allows manual execution from GitHub Actions
+
+jobs:
+  execute-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Clones your repository
+
+      - name: Set script permissions
+        run: chmod +x greatest.sh  # Ensure it's executable
+
+      - name: Run the shell script
+        run: ./greatest.sh 10 20  # Replace with dynamic values if needed
